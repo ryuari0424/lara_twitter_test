@@ -1,14 +1,14 @@
 @extends('layouts.base')
 @section('header')
-    <x-navbar :user = '$user'/>
+<x-navbar :user="$user"/>
 @endsection
 
 @section('content')
     <section class="card-login-form bg-gray-200">
         <div class="bg-gray-200 relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl">
-            <div class="grid grid-cols-1">
+            <div class="grid grid-cols-1 rounded-xl">
                 <div class="w-full max-w-lg mx-auto my-4 bg-white shadow-xl rounded-xl">
-                    <div class="p-6 lg:text-center bg-white">
+                    <div class="p-0 text-center bg-white">
                         <h4 class="mt-8 text-2xl font-semibold leading-none tracking-tighter text-neutral-600 lg:text-3xl">
                             Twitterもどき</h4>
                         <h5 class="mt-8 text-xl font-semibold leading-none tracking-tighter text-neutral-600 lg:text-3xl">

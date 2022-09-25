@@ -13,7 +13,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="bg-gray-200 font-sans antialiased">
         
         <header class="sticky top-0 z-50 bg-white">
             @yield('header')

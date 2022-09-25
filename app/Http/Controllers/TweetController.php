@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Tweet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,6 +26,10 @@ class TweetController extends Controller
         $user = User::find($user);
         $request->validate([
             'text' => 'required|min:8|max:255'
+        ]);
+
+        $tweet = Tweet::create([
+            "text" => $request->text,
         ]);
         dd($user);
         

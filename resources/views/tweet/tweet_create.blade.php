@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    
+    <x-tweet_card />
 @endsection
