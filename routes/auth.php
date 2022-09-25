@@ -42,6 +42,8 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('tweet/{user}', [TweetController::class, 'firstPage'])->name('first');
+    Route::get('tweet/{user}/create', [TweetController::class, 'tweetCreate'])->name('tweetcreate');
+    Route::post('tweet/{user}/create', [TweetController::class, 'tweetStore'])->name('tweetstore');
 
 
     route::get('tweet/{user}/useredit', [UserController::class, 'userEdit'])->name('user_edit');

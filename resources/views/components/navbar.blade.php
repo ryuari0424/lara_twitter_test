@@ -40,7 +40,7 @@
                 </a>
                 @endguest
                 @auth
-                <a href="">
+                <a href="{{ route('tweetcreate', ['user' => $user->id])}}">
                     <button class="items-center block px-10 py-3 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-green-500 rounded-xl hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">ツイートする</button>
                 </a>
                 <a href="{{ route('user_edit', ['user' => Auth::user()->id ]) }}">
