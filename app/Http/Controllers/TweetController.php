@@ -11,8 +11,10 @@ class TweetController extends Controller
 {
     public function firstPage(){
         $user = Auth::user();
+
+        $tweets = Tweet::latest()->get();
         
-        return view('tweet.first_page', ['user' => $user]);
+        return view('tweet.first_page', ['user' => $user, "tweets" => $tweets]);
     }
 
     public function tweetCreate(){
@@ -30,8 +32,9 @@ class TweetController extends Controller
 
         $tweet = Tweet::create([
             "text" => $request->text,
+            'user_id' => $user->id,
         ]);
-        dd($user);
-        
+
+        return redirect()->route('first', ["user" => $user->id])->with('success', 'ツイートしました');
     }
 }

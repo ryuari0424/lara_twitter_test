@@ -15,17 +15,21 @@
             <div class="w-full space-y-6">
                 <div class="w-full">
                     <div class=" relative ">
-                        <form action="" method="'post">
+                        <form action="{{ route('tweetstore', ['user' => $user->id]) }}" method="post">
                             @csrf
-                            <textarea cols="30" rows="5" type="text" id="search-form-price"
-                                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-400 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="ツイートを入れて"></textarea>
+                            <textarea name="text" cols="30" rows="5" type="text" id="search-form-price"
+                                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-400 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                                placeholder="ツイートを入れて"></textarea>
                     </div>
                 </div>
+                @error('text')
+                    <div class="text-sm text-black-700 bg-red-200">{{ $message }}</div>
+                @enderror
                 <div>
                     <span class="block w-full rounded-md shadow-sm">
-                        <button type="button"
+                        <button type="submit"
                             class="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                            ツイートする
+                            ツイートしてください
                         </button>
                     </span>
                     </form>

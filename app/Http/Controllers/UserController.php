@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use App\Models\User;
+use App\Models\Tweet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Validator;
 
 class UserController extends Controller
 {
@@ -13,6 +14,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
+        
         return view('tweet.user_edit', ['user' => $user]);
     }
 

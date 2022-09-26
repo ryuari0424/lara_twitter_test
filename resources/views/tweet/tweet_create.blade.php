@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    <x-tweet_card />
+    <x-tweet_card :user="$user"/>
 @endsection
