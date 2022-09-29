@@ -27,6 +27,7 @@
             </p>
         </div>
     </div> --}}
+    {{ $tweets->links('vendor.pagination.simple-tailwind') }}
     <div>
         @foreach ($tweets as $tweet)
             <div class="grid grid-cols-5 items-center bg-green-400">
@@ -50,5 +51,7 @@
             </div>
         @endforeach
         <div></div>
+    </div>
+    <div class="">
     </div>
 @endsection

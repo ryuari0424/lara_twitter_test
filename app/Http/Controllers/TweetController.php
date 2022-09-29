@@ -12,7 +12,7 @@ class TweetController extends Controller
     public function firstPage(){
         $user = Auth::user();
 
-        $tweets = Tweet::latest()->get();
+        $tweets = Tweet::latest()->paginate(5);
         
         return view('tweet.first_page', ['user' => $user, "tweets" => $tweets]);
     }
