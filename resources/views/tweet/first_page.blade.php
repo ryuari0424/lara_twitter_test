@@ -27,24 +27,38 @@
             </p>
         </div>
     </div> --}}
+
+
     {{ $tweets->links('vendor.pagination.simple-tailwind') }}
     <div>
         @foreach ($tweets as $tweet)
-            <div class="grid grid-cols-5 items-center bg-green-400">
+            <div class="grid grid-cols-5 items-center bg-white">
                 <div></div>
-                <div class="p-10 col-span-3 bg-red-400 items-center justify-center lg:max-w-full">
-                    <div
-                        class="border border-gray-400 rounded-xl lg:border lg:border-gray-400 bg-blue-400 rounded-xl p-4 flex flex-col justify-between leading-normal">
-                        <div class="mb-8">
-                            <p class="whitespace-pre-line text-gray-700 text-base ">{{ $tweet->text }}</p>
+                <div id="card" class="p-6 col-span-3 items-center justify-center lg:max-w-full">
+                    <div id="card_component" class="border-2 border-gray-200 bg-gray-400 rounded-lg shadow-lg">
+                        <div id="card_text" class="mx-2 mt-2 mb-8">
+                            <p class="whitespace-pre-line break-words text-gray-700 text-base ">{{ $tweet->text }}</p>
                         </div>
-                        <div class="flex items-center">
-                            <img class="w-10 h-10 rounded-full mr-4" src="{{ Storage::url($tweet->user->image) }}"
-                                alt="Avatar of Writer">
-                            <div class="text-sm">
-                                <p class="text-gray-900 font-bold leading-none">{{ $tweet->user->nickname }}</p>
-                                <p class="text-gray-600">{{ $tweet->created_at }}</p>
+
+                        <div class="flex justify-between">
+                            <div class="flex items-center mx-2 mb-1">
+                                <img class="w-10 h-10 rounded-full mr-2" src="{{ Storage::url($tweet->user->image) }}"
+                                    alt="Avatar of Writer">
+                                <div class="text-sm">
+                                    <p class="text-gray-900 font-bold leading-none">{{ $tweet->user->nickname }}</p>
+                                    <p class="text-gray-600">{{ $tweet->created_at }}</p>
+                                </div>
                             </div>
+                            @if($tweet->user_id == Auth::user()->id)
+                            <form method="post" action="{{ route('tweetdelete', ['user' => $user->id, "tweet" => $tweet->id])}}">
+                                @csrf
+                                @method('delete')
+                                <button
+                                    class="bg-gradient-to-br from-red-300 to-red-600 hover:bg-gradient-to-tl text-white rounded px-3 py-1 mr-2 mb-1" type="submit">
+                                    <span class="px-3">delete</span>
+                                </button>
+                            </form>
+                            @endif
                         </div>
                     </div>
                 </div>

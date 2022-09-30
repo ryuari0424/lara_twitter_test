@@ -37,4 +37,13 @@ class TweetController extends Controller
 
         return redirect()->route('first', ["user" => $user->id])->with('success', 'ツイートしました');
     }
+
+    public function tweetDestroy(Request $request, $user, $tweet){
+
+        $tweet = Tweet::find($tweet);
+        
+        $tweet->delete();
+
+        return redirect()->route('first', ["user" => $user])->with('success', 'ツイート削除しました');
+    }
 }
