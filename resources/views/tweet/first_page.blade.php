@@ -32,7 +32,7 @@
     {{ $tweets->links('vendor.pagination.simple-tailwind') }}
     <div>
         @foreach ($tweets as $tweet)
-            <div class="grid grid-cols-5 items-center bg-gray-100">
+            <div class="grid grid-cols-5 items-center bg-white">
                 <div></div>
                 <div id="card" class="p-6 col-span-3 items-center justify-center lg:max-w-full">
                     <div id="card_component" class="border-2 border-gray-200 bg-gray-400 rounded-lg shadow-lg">
