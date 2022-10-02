@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TweetController;
 use App\Http\Controllers\Auth\NewPasswordController;
@@ -44,8 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::get('tweet/{user}', [TweetController::class, 'firstPage'])->name('first');
     Route::get('tweet/{user}/create', [TweetController::class, 'tweetCreate'])->name('tweetcreate');
     Route::post('tweet/{user}/create', [TweetController::class, 'tweetStore'])->name('tweetstore');
-    Route::delete('tweet/{user}/delete/{tweet}', [TweetController::class, 'tweetDestroy'])->name('tweetdelete');
-
+    Route::delete('tweet/{user}/delete/{tweet}', [TweetController::class, 'tweetDestroy'])->name('tweetdelete');    
+    
 
     route::get('tweet/{user}/useredit', [UserController::class, 'userEdit'])->name('user_edit');
     route::put('tweet/{user}/useredit', [UserController::class, 'userUpdate'])->name('user_update');

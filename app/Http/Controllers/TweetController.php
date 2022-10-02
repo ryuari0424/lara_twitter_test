@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
 use App\Models\User;
 use App\Models\Tweet;
 use Illuminate\Http\Request;
@@ -10,9 +11,10 @@ use Illuminate\Support\Facades\Auth;
 class TweetController extends Controller
 {
     public function firstPage(){
+        
         $user = Auth::user();
-
         $tweets = Tweet::latest()->paginate(5);
+
         
         return view('tweet.first_page', ['user' => $user, "tweets" => $tweets]);
     }
